@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# path to Archives
+# file to Archives
 target_path="$HOME/Archives"
 
 # Module Path
@@ -10,43 +10,48 @@ modules_path=$(dirname "${BASH_SOURCE[0]}")
 source "$modules_path/colors.sh"
 
 extracter() {
-    local path
+    local file
 
     # Check if target directory exists, if not ask for archive path
     if [ ! -d "$target_path" ]; then
-        read -p "   Enter path to archive: " path
+        read -p "   Enter file to archive: " file
     elif [ -e "$target_path" ]; then
         cd "${target_path}"
-        read -p "   Enter archive name: " path
+        read -p "   Enter archive name: " file
     fi
 
     # Check if the archive file exists
-    if [ -e "$path" ]; then
-        if [ -f "$path" ]; then
+    if [ -e "$file" ]; then
+        if [ -f "$file" ]; then
             # Extract based on archive format
-            case $path in
+            case $file in
                 *.tar.gz)
-                    tar -xzvf "$path" -C "$target_path"
+                    tar -xzvf "$file" -C "$target_path"
                 ;;
 
                 *.tar.xz)
-                    tar -xvf "$path" -C "$target_path"
+                    tar -xvf "$file" -C "$target_path"
                 ;;
 
                 *.tar.zst)
-                    tar --zstd -xvf "$path" -C "$target_path"
+                    tar --zstd -xvf "$file" -C "$target_path"
                 ;;
 
                 *.zip)
-                    unzip "$path" -d "$target_path"
+                    size=$(stat -c %s "$file")
+                    if [ "$size" -gt 4000 ]; then
+                        7z x "$file" -o"$target_path"
+                    else
+                        unzip "$file" -d "$target_path"
+                    fi
                 ;;
 
                 *.7z)
-                    7z x "$path" -o "$target_path"
+                    7z x "$file" -o"$target_path"
                 ;;
 
                 *)
-                    echo -e "${RED}Unsupported archive format: ${RESET}$path"
+                    echo -e "${RED}Unsupported archive format: ${RESET}$file"
                     exit 1
             esac
         fi
