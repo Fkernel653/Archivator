@@ -10,10 +10,10 @@ extractor() {
 
     # Check if target directory exists, if not ask for archive path
     if [ ! -d "$target_folder" ]; then
-        read -r -p "   Enter file to archive: " file
+        read -r -p $"    Enter file to archive: " file
     else
         cd "${target_folder}"
-        read -r -p "   Enter archive name: " file
+        read -r -p $"   Enter archive name: " file
         # If relative path, it's relative to target_folder
         if [[ ! "$file" = /* && ! "$file" =~ ^~ ]]; then
             file="$target_folder/$file"

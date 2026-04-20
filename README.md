@@ -8,7 +8,7 @@ A powerful CLI tool for compressing and extracting archives with modern algorith
 
 ## ✨ Features
 
-- **Multiple Formats** — `.tar.zst`, `.tar.gz`, `.tar.xz`, `.zip`, `.7z`
+- **Multiple Formats** — `zip`, `7z`, `tar`, `tar.gz` (`tgz`/`gz`), `tar.zst` (`zst`), `tar.xz` (`xz`)
 - **High Compression** — Zstandard level 19 with multi-threading
 - **Smart Exclusions** — Auto-skips `temp/`, `cache/`, `*.tmp`, `*.log`
 - **Large File Support** — Handles ZIP >4GB via 7z backend
@@ -40,18 +40,23 @@ chmod +x main.sh modules/*.sh
 
 | Option | Description |
 |--------|-------------|
-| `1` | Compress — Creates `.tar.zst` in `~/Archives/` |
-| `2` | Extract — Supports all formats to `~/Archives/extracted/` |
+| `1` | Compress — Select format, output to `~/Archives/` |
+| `2` | Extract — Auto-detect format to `~/Archives/extracted/` |
 | `3` | Exit |
+
+**Supported extensions for compression:** `zip`, `7z`, `tar`, `tar.gz` (or `gz`/`tgz`), `tar.zst` (or `zst`), `tar.xz` (or `xz`)
+
+**Supported formats for extraction:** `.zip`, `.7z`, `.tar`, `.tar.gz`, `.tgz`, `.tar.xz`, `.txz`, `.tar.zst`, `.gz`, `.xz`, `.zst`, `.rar`
 
 **Examples:**
 ```bash
 # Compress a directory
 Enter path: /home/user/Documents/MyProject
+Enter the extension: tar.zst
 # → ~/Archives/MyProject.tar.zst
 
 # Extract an archive
-Enter archive name: myarchive.tar.zst
+Enter archive name: myarchive.7z
 # → ~/Archives/extracted/myarchive/
 ```
 

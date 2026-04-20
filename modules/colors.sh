@@ -1,5 +1,6 @@
 #!/bin/bash
 RESET='\033[0;0m'
+BOLD='\033[0;1m'
 ITALIC='\033[0;3m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'

@@ -1,28 +1,29 @@
 #!/bin/bash
 set -euo pipefail
 
-parent_path=$(dirname "${BASH_SOURCE[0]}")
-modules_path="$parent_path/modules"
+parent_dir=$(dirname "${BASH_SOURCE[0]}")
+modules_path="$parent_dir/modules"
 source "$modules_path/colors.sh"
 
 main() {
     clear
     echo -e "${GRAY}
-██   █▄▄▄▄  ▄  █ ▄█     ▄   ██     ▄▄▄▄▀ ████▄ █▄▄▄▄
-█ █  █  ▄▀ █   █ ██      █  █ █ ▀▀▀ █    █   █ █  ▄▀
-█▄▄█ █▀▀▌  ██▀▀█ ██ █     █ █▄▄█    █    █   █ █▀▀▌ 
-█  █ █  █  █   █ ▐█  █    █ █  █   █     ▀████ █  █ 
-   █   █      █   ▐   █  █     █  ▀              █  
-  █   ▀      ▀         █▐     █                 ▀   
- ▀                     ▐     ▀                           
 
-                        ${BLUE}dev${MAGENTA}=${RESET}${ITALIC}Fkernel653${RESET}
-    ${GREEN}1${MAGENTA}=${YELLOW}Compress${RESET}
-    ${BLUE}2${MAGENTA}=${YELLOW}Extract${RESET}
-    ${RED}3${MAGENTA}=${YELLOW}Exit${RESET}
+    ██   █▄▄▄▄  ▄  █ ▄█     ▄   ██     ▄▄▄▄▀ ████▄ █▄▄▄▄
+    █ █  █  ▄▀ █   █ ██      █  █ █ ▀▀▀ █    █   █ █  ▄▀
+    █▄▄█ █▀▀▌  ██▀▀█ ██ █     █ █▄▄█    █    █   █ █▀▀▌ 
+    █  █ █  █  █   █ ▐█  █    █ █  █   █     ▀████ █  █ 
+       █   █      █   ▐   █  █     █  ▀              █  
+      █   ▀      ▀         █▐     █                 ▀   
+    ▀                     ▐     ▀                           
+
+                                    ${GRAY}dev${MAGENTA}=${RESET}${BOLD}Fkernel653${RESET}
+            ${GRAY}1${MAGENTA}=${BLUE}Compress${RESET}
+            ${GRAY}2${MAGENTA}=${BLUE}Extract${RESET}
+            ${GRAY}3${MAGENTA}=${BLUE}Exit${RESET}
 "
 
-    read -r -p "Enter your selection: " selection
+    read -r -p $"        Enter your selection: " selection
     case $selection in
         1)
             bash "$modules_path/compressor.sh" || {
@@ -39,6 +40,7 @@ main() {
         3)
             clear
             echo -e "${GREEN}Goodbye!${RESET}"
+            exit 0
             ;;
     esac
 }
