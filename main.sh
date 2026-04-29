@@ -11,11 +11,11 @@ main() {
 
     ██   █▄▄▄▄  ▄  █ ▄█     ▄   ██     ▄▄▄▄▀ ████▄ █▄▄▄▄
     █ █  █  ▄▀ █   █ ██      █  █ █ ▀▀▀ █    █   █ █  ▄▀
-    █▄▄█ █▀▀▌  ██▀▀█ ██ █     █ █▄▄█    █    █   █ █▀▀▌ 
-    █  █ █  █  █   █ ▐█  █    █ █  █   █     ▀████ █  █ 
-       █   █      █   ▐   █  █     █  ▀              █  
-      █   ▀      ▀         █▐     █                 ▀   
-    ▀                     ▐     ▀                           
+    █▄▄█ █▀▀▌  ██▀▀█ ██ █     █ █▄▄█    █    █   █ █▀▀▌
+    █  █ █  █  █   █ ▐█  █    █ █  █   █     ▀████ █  █
+       █   █      █   ▐   █  █     █  ▀              █
+      █   ▀      ▀         █▐     █                 ▀
+    ▀                     ▐     ▀
 
                                     ${GRAY}dev${MAGENTA}=${RESET}${BOLD}Fkernel653${RESET}
             ${GRAY}1${MAGENTA}=${BLUE}Compress${RESET}
@@ -26,13 +26,13 @@ main() {
     read -r -p $"        Enter your selection: " selection
     case $selection in
         1)
-            bash "$modules_path/compressor.sh" || {
+            ./"$modules_path/compressor.sh" || {
                 echo -e "${RED}Please check for files in ${modules_path}${RESET}"
                 exit 1
             }
             ;;
         2)
-            bash "$modules_path/extractor.sh" || {
+            ./"$modules_path/extractor.sh" || {
                 echo -e "${RED}Please check for files in ${modules_path}${RESET}"
                 exit 1
             }
