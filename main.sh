@@ -7,7 +7,7 @@ source "$modules_path/colors.sh"
 
 main() {
     clear
-    echo -e "${GRAY}
+    echo -e "${RED}
 
     ██   █▄▄▄▄  ▄  █ ▄█     ▄   ██     ▄▄▄▄▀ ████▄ █▄▄▄▄
     █ █  █  ▄▀ █   █ ██      █  █ █ ▀▀▀ █    █   █ █  ▄▀
@@ -17,10 +17,10 @@ main() {
       █   ▀      ▀         █▐     █                 ▀
     ▀                     ▐     ▀
 
-                                    ${GRAY}dev${MAGENTA}=${RESET}${BOLD}Fkernel653${RESET}
-            ${GRAY}1${MAGENTA}=${BLUE}Compress${RESET}
-            ${GRAY}2${MAGENTA}=${BLUE}Extract${RESET}
-            ${GRAY}3${MAGENTA}=${BLUE}Exit${RESET}
+                                ${GRAY}dev:${BOLD}Fkernel653${RESET}
+        ${GRAY}1: ${BLUE}Compress${RESET}
+        ${GRAY}2: ${BLUE}Extract${RESET}
+        ${GRAY}3: ${BLUE}Exit${RESET}
 "
 
     read -r -p $"        Enter your selection: " selection
