@@ -38,13 +38,13 @@ extractor() {
 
     # Extract based on format
     case $file in
-        *.tar.gz)
+        *.tar.gz|*.tgz)
             tar -xzvf "$file" -C "$extract_base"
             ;;
-        *.tar.xz)
+        *.tar.xz|*.txz)
             tar -xJvf "$file" -C "$extract_base"
             ;;
-        *.tar.zst)
+        *.tar.zst|*.tzst)
             tar --zstd -xvf "$file" -C "$extract_base"
             ;;
         *.zip)

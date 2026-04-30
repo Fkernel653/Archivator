@@ -17,7 +17,7 @@ main() {
       █   ▀      ▀         █▐     █                 ▀
     ▀                     ▐     ▀
 
-                                ${GRAY}dev:${BOLD}Fkernel653${RESET}
+                                ${GRAY}dev: ${BOLD}Fkernel653${RESET}
         ${GRAY}1: ${BLUE}Compress${RESET}
         ${GRAY}2: ${BLUE}Extract${RESET}
         ${GRAY}3: ${BLUE}Exit${RESET}
@@ -45,4 +45,5 @@ main() {
     esac
 }
 
+trap 'clear; echo -e "\n${GREEN}Goodbye!${RESET}"; exit 0' SIGINT
 [[ "${BASH_SOURCE[0]}" == "${0}" ]] && main
