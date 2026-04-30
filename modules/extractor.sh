@@ -38,29 +38,38 @@ extractor() {
 
     # Extract based on format
     case $file in
-        *.tar.gz|*.tgz)
-            tar -xzvf "$file" -C "$extract_base"
-            ;;
-        *.tar.xz|*.txz)
-            tar -xJvf "$file" -C "$extract_base"
-            ;;
-        *.tar.zst|*.tzst)
-            tar --zstd -xvf "$file" -C "$extract_base"
-            ;;
-        *.zip)
-            size=$(stat -c %s "$file")
-            if [ "$size" -gt 4000000000 ]; then
+            *.tar.gz|*.tgz)
+                tar -xzvf "$file" -C "$extract_base"
+                ;;
+            *.tar.xz|*.txz)
+                tar -xJvf "$file" -C "$extract_base"
+                ;;
+            *.tar.zst|*.tzst)
+                tar --zstd -xvf "$file" -C "$extract_base"
+                ;;
+            *.gz)
+                gunzip -k "$file"
+                ;;
+            *.xz)
+                unxz -k "$file"
+                ;;
+            *.zst)
+                unzstd -k "$file"
+                ;;
+            *.zip)
+                size=$(stat -c %s "$file")
+                if [ "$size" -gt 4000000000 ]; then
+                    7z x "$file" -o"$extract_base"
+                else
+                    unzip "$file" -d "$extract_base"
+                fi
+                ;;
+            *.7z|*.rar)
                 7z x "$file" -o"$extract_base"
-            else
-                unzip "$file" -d "$extract_base"
-            fi
-            ;;
-        *.7z)
-            7z x "$file" -o"$extract_base"
-            ;;
-        *)
-            echo -e "${RED}Unsupported archive format: ${RESET}$file"
-            exit 1
+                ;;
+            *)
+                echo -e "${RED}Unsupported archive format: ${RESET}$file"
+                exit 1
     esac
 }
 
