@@ -101,4 +101,4 @@ MIT License — see [LICENSE](LICENSE).
 ---
 
 **Author:** [Fkernel653](https://github.com/Fkernel653)  
-**Repository:** [github.com/Fkernel653/fm-dlp](https://github.com/Fkernel653/fm-dlp)
+**Repository:** [github.com/Fkernel653/Archivator](https://github.com/Fkernel653/Archivator)
