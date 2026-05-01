@@ -65,6 +65,7 @@ Enter archive name: myarchive.7z
 ```
 Archivator/
 ├── main.sh              # Menu interface
+├── README.md            # Project documentation
 └── modules/
     ├── colors.sh        # ANSI color definitions
     ├── compressor.sh    # Compression logic
@@ -97,6 +98,7 @@ Archivator/
 
 MIT License — see [LICENSE](LICENSE).
 
-## 👤 Author
+---
 
-**Fkernel653** — [GitHub](https://github.com/Fkernel653)
+**Author:** [Fkernel653](https://github.com/Fkernel653)  
+**Repository:** [github.com/Fkernel653/fm-dlp](https://github.com/Fkernel653/fm-dlp)
