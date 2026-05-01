@@ -8,7 +8,7 @@ A powerful CLI tool for compressing and extracting archives with modern algorith
 
 ## ✨ Features
 
-- **Multiple Formats** — `zip`, `7z`, `rar`, `tar`, `tar.gz` (`tgz`/`gz`), `tar.zst` (`zst`/`tzst`), `tar.xz` (`xz`/`txz`)
+- **Multiple Formats** — `zip`, `7z`, `tar`, `tar.gz` (`tgz`/`gz`), `tar.zst` (`zst`/`tzst`), `tar.xz` (`xz`/`txz`)
 - **High Compression** — Zstandard level 19 with multi-threading; 7z ultra compression (`-mx=5`)
 - **Smart Exclusions** — Auto-skips `temp/*`, `cache/*`, `*.tmp`, `*.log` for Zstandard archives
 - **Large File Support** — Handles ZIP >4GB via 7z backend during extraction
@@ -44,9 +44,9 @@ chmod +x main.sh modules/*.sh
 | `2` | **Extract** — Auto-detect format to `~/Archives/extracted/` |
 | `3` | Exit |
 
-**Supported extensions for compression:** `zip`, `7z`, `rar`, `tar`, `tar.gz` (or `gz`/`tgz`), `tar.zst` (or `zst`/`tzst`), `tar.xz` (or `xz`/`txz`)
+**Supported extensions for compression:** `zip`, `7z`, `tar`, `tar.gz` (or `gz`/`tgz`), `tar.zst` (or `zst`/`tzst`), `tar.xz` (or `xz`/`txz`)
 
-**Supported formats for extraction:** `.zip`, `.7z`, `.rar`, `.tar`, `.tar.gz`, `.tgz`, `.tar.xz`, `.txz`, `.tar.zst`, `.tzst`, `.gz`, `.xz`, `.zst`
+**Supported formats for extraction:** `.zip`, `.7z`, `.tar`, `.tar.gz`, `.tgz`, `.tar.xz`, `.txz`, `.tar.zst`, `.tzst`, `.gz`, `.xz`, `.zst`
 
 **Examples:**
 ```bash
